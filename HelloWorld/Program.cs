@@ -1,5 +1,11 @@
 ﻿using System;
 
-string name = ".NET Training";
-
-Console.WriteLine(name);
+class ABC
+{
+    public static void Main()
+    {
+        Person p1 = new();
+        p1.name = "Ram";
+        p1.Test();
+    }
+}
