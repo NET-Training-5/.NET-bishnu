@@ -16,6 +16,12 @@ You make changes (Add, modify, delete)
 > git push (For the first time, git may welcome you with authorization popup)
 ```
 
+## Create new console application
+```
+>dotnet new console -n Fundamentals
+>cd Fundamentals
+>dotnet build/run
+```
 
 # Assignments
 1. Create a real world class with following:

@@ -30,5 +30,6 @@ class Variable
         DateTime dob;
         DateOnly chunabDay;
         TimeOnly meetingToday;
+        
     }
 }
