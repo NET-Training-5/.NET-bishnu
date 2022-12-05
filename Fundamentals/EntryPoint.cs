@@ -1,5 +1,5 @@
 ﻿class EntryPoint
-{    
+{
     public static void Main()
     {
         // Console.Write("Enter your name:");
@@ -7,78 +7,59 @@
         // Console.WriteLine(x + " Wow, Nice name");
         // Console.WriteLine("Nepal is beautiful country");
 
-        // Conditionals, Selection statements
-        // If-else, if-elseif-else, switch
-        // Branching
-
-
-        Console.Write("Enter your age:");
-        string ageText = Console.ReadLine();
-        short age = short.Parse(ageText);
-
-        // if (age > 18) // >,<,<=, >=, !=, ==
-        // {
-        //     Console.WriteLine("You are adult now.");
-        // }
-        // else
-        // {
-        //     Console.WriteLine("You are still a child.");
-        // }
-
-        // age < 18, Output should be "You are child"
-        // age > 18 and age < 40, Output should be "You are adult"
-        // age > 40 and age < 60, Output should be "You are in your middle age"
-        // age > 60, Output should be "You are old now"
-        if(age < 18)
-        {
-            Console.WriteLine("You are child");
-        }
-        else if(age < 40)
-        {
-            Console.WriteLine("You are adult");
-        }
-        else if(age < 60)
-        {
-            Console.WriteLine("You are in your middle age");
-        }
-        else
-        {
-            Console.WriteLine("You are old now");
-        }
-
-        // Mesh - "ka, kha"
-        // Tula - "Ga gha"
-        // Brisha - "Ba Bi"
-        Console.Write("Enter your rashi:");
-        string rashi = Console.ReadLine();
-                
-        // if(rashi == "Mesh")
-        // {
-        //     Console.WriteLine("Mesh rashi intials are ka, kha...");
-        // }
-        // else if(rashi == "Tula")
-        // {
-        //     Console.WriteLine("Tula rashi intials are Ga, Gha...");
-        // }
-        // else
-        // {
-        //     Console.WriteLine("Brisha rashi intials are ba, bi...");
-        // }
-
-        switch(rashi)
-        {
-            case "Mesh": Console.WriteLine("Mesh rashi intials are ka, kha...");
-            break;
-            case "Tula": Console.WriteLine("Tula rashi intials are Ga, Gha...");
-            break;
-            case "Brisha": Console.WriteLine("Brisha rashi intials are ba, bi...");
-            break;
-            default:Console.WriteLine("Unknown rashi");
-            break;
-        }
+        Selection sel1 = new(); 
+        sel1.LearnSelectionStatements();
 
         //Loops, iterations
         // for, while, do-while, foreach
+
+        for (int counter = 60; counter > 50; counter--)
+        {
+            Console.WriteLine("Nepal");
+        }
+
+        for (byte num = 1; num <= 100; num++)
+        {
+            Console.Write(num + " ");
+        }
+
+        int n = 1;
+        while(n <= 100)
+        {
+            Console.Write(n + " ");
+            n++;
+        }
+
+        // While - use case
+        string key = "y";
+        while(key == "y")
+        {
+            Console.WriteLine("Nepal");
+
+            key = Console.ReadLine();
+        }
+
+        // CW - Print even numbers less than 500
+        // CW - Print odd numbers less than 500
+        // CW - Print all numbers less than 500 which are multiple of 3 and 5
+        Console.WriteLine("Odd numbers:");
+        for (int num = 0; num < 500; num++)
+        {
+            if (num % 2 != 0)
+            {
+                Console.Write(num + " ");
+            }
+        }
+
+        Console.WriteLine("Multiples of 3 and 5:");
+        for (int num = 0; num < 500; num++)
+        {
+            if (num % 3 == 0 && num % 5 == 0 )
+            {
+                Console.Write(num + " ");
+            }
+        }
+
 
     }
 }
