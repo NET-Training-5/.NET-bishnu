@@ -28,3 +28,22 @@ You make changes (Add, modify, delete)
     1. 4 fields: 2 public, 1 internal and a privte
     1. Two methods
     1. Create two objects of this class in another class/method and assin values for above fields for each object.
+1. Print following pattern in console:
+    ```
+    #
+    ##
+    ###
+    ####
+    #####
+    ```
+    ```
+    1
+    22
+    333
+    4444
+    55555
+    666666
+
+    ```
+
+1. Write a method to find min and max of supplied numbers. This method should also accept variable number of arguments.
