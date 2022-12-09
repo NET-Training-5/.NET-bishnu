@@ -44,16 +44,23 @@
         // var (minimum, maximum) = m.FindMinMax(2, 5, -5, 8, 9, 10, 34);
         // Console.WriteLine($"Min:{minimum} Max:{maximum}");
 
-        Person person1 = new();
-        person1.fullName = "Ram Basnet";
-        person1.dob = new DateTime(1980, 12, 12);
-        person1.address = "Kathmandu";
-        person1.gender = 'M';
-        person1.weight = 78.7f;
-        person1.height = 70.4f;
+        // Person person1 = new();
+        // person1.fullName = "Ram Basnet";
+        // person1.dob = new DateTime(1980, 12, 12);
+        // person1.address = "Kathmandu";
+        // person1.gender = 'M';
+        // person1.weight = 78.7f;
+        // person1.height = 70.4f;
 
-        var z = person1.FindAge();
-        var y = person1.FindBMI();
-        Console.WriteLine($"{person1.fullName} is {z:N3} years old and his BMI is {y}");
+        // var z = person1.FindAge();
+        // var y = person1.FindBMI();
+        // Console.WriteLine($"{person1.fullName} is {z:N3} years old and his BMI is {y}");
+
+        Vehicle car1 = new();
+        Vehicle truck1 = new();
+        car1.Brand = "K";
+        car1.Model = "Nexon EV";
+        car1.PrintDetails();
+        truck1.PrintDetails();
     }
 }
