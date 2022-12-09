@@ -27,7 +27,7 @@ class Method
 
     // Expression bodied members
     public double AddS(double a, double b) => a + b;
-    
+
     // Takes arguements or not, returns multiple values
     // Find sum and product of supplied numbers
     // Tuples
@@ -35,15 +35,15 @@ class Method
     {
         var sum = a + b;
         var product = a * b;
-
+        
         return (sum, product);
-    }   
+    }
 
     // CW - Write a method which takes 3 numbers and returns average of all.
     public double FindAverage(params int[] items)
     {
         var sum = 0;
-        foreach(var i in items)
+        foreach (var i in items)
         {
             sum = sum + i;
         }
@@ -55,5 +55,19 @@ class Method
 
     // CW - Find min and max of numbers provided to a method.
     //      This method should also accept variable number of arguments
-    
-}   
+
+    public (short, short) FindMinMax(params short[] numbers) //8,9,2,-5,1,10
+    {
+        short min = short.MaxValue, max = 0;
+
+        foreach (var num in numbers)
+        {
+            if (num < min)
+                min = num;
+            if (num > max)
+                max = num;
+        }
+
+        return (min, max);
+    }
+}
