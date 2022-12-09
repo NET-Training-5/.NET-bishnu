@@ -49,6 +49,6 @@ You make changes (Add, modify, delete)
 1. Write a method to find min and max of supplied numbers. This method should also accept variable number of arguments.
 
 1. Think of a real world class with following:
-    1. 2 fields
-    1. 2 properties: one autoimplemented, one write-only
-    1. a method which prints details of objects of that class
+    1. Two fields
+    1. Two properties: one autoimplemented, one write-only
+    1. A method which prints details of objects of that class
