@@ -56,11 +56,23 @@
         // var y = person1.FindBMI();
         // Console.WriteLine($"{person1.fullName} is {z:N3} years old and his BMI is {y}");
 
-        Vehicle car1 = new();
-        Vehicle truck1 = new();
-        car1.Brand = "K";
-        car1.Model = "Nexon EV";
-        car1.PrintDetails();
-        truck1.PrintDetails();
+        // Vehicle car1 = new();
+        // Vehicle truck1 = new();
+        // car1.Brand = "K";
+        // car1.Model = "Nexon EV";
+        // car1.PrintDetails();
+        // truck1.PrintDetails();
+
+        FiFa worldcup2018 = new FiFa();
+        worldcup2018.host = "Russia";        
+        worldcup2018.year = new DateTime(2018, 2, 3);        
+        worldcup2018.winner = "France";        
+        worldcup2018.teams = "France, Germany, Brazil";        
+
+        FiFa worldcup2022 = new("Qatar");
+        FiFa worldcup2002 = 
+            new("Qatar", new DateTime(2002, 1, 1), 
+            "Nepal", "France, Germany");
+
     }
 }
