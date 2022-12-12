@@ -1,4 +1,6 @@
+using System;
 
+namespace PreBasic;
 class Loop
 {
     public void LearnLoops()

@@ -1,16 +1,19 @@
+using System;
+
 class FiFa
 {
+    public static byte Groups = 8;
     public string host;
     public DateTime year;
     public string winner;
     public string teams;
 
-    // // Default constructor
+    // Default constructor
     public FiFa()
     {        
     } 
 
-    // // Parameterized constructor
+    // Parameterized constructor
     public FiFa(string h)
     {
         host = h;
@@ -25,5 +28,5 @@ class FiFa
     }
 
     // Garbage Collection
-
+    
 }

@@ -1,4 +1,5 @@
 using System;
+namespace PreBasic;
 class Variable
 {
     void LearnAboutVariables()
@@ -66,8 +67,8 @@ class Variable
         //  1   5
         //  9   8   4   5
         short[][] items = new short[3][];
-        items[0] = new short[] {2, 4, 7};
-        items[1] = new short[] {1, 5};
-        items[2] = new short[] {9, 8, 4, 5};
+        items[0] = new short[] { 2, 4, 7 };
+        items[1] = new short[] { 1, 5 };
+        items[2] = new short[] { 9, 8, 4, 5 };
     }
 }
