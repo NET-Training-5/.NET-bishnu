@@ -52,3 +52,12 @@ You make changes (Add, modify, delete)
     1. Two fields
     1. Two properties: one autoimplemented, one write-only
     1. A method which prints details of objects of that class
+
+1. Think of a real world scnario for following:
+    ``` 
+        TypeB inherits TypeA
+        TypeB implements InterfaceA
+    ```
+    1. Note that **TypeA** should have at least two methods, two fields and two properties.
+    1. Create instance of **TypeB**, show output of those methods in console.
+    
