@@ -99,6 +99,6 @@ class EntryPoint
         // g.PrintDetails<char>('F');
 
         FileIO fi = new();
-        fi.CreateFile();
+        fi.CreateDirectory();
     }
 }
