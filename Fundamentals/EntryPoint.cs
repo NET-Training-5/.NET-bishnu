@@ -98,7 +98,10 @@ class EntryPoint
         // g.PrintDetails<bool>(false);
         // g.PrintDetails<char>('F');
 
-        FileIO fi = new();
-        fi.CreateDirectoriesAndFiles();
+        // FileIO fi = new();
+        // fi.CreateDirectoriesAndFiles();
+
+        LINQ l = new();
+        l.LearnToQuery();
     }
 }
