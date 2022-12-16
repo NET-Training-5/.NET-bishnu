@@ -60,4 +60,7 @@ You make changes (Add, modify, delete)
     ```
     1. Note that **TypeA** should have at least two methods, two fields and two properties.
     1. Create instance of **TypeB**, show output of those methods in console.
-    
+1. Create an array containing 20 country names. Query this collection to answer following:
+    1. List all countries starting with letter N.
+    1. List all countries which have length of 4 or less.
+    1. Convert all countries to uppercase.
