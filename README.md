@@ -64,3 +64,9 @@ You make changes (Add, modify, delete)
     1. List all countries starting with letter N.
     1. List all countries which have length of 4 or less.
     1. Convert all countries to uppercase.
+
+1. Read vegetables data from *Kalimati.csv* and parse that to ***List<Vegetable>*** collection.
+    1. Find all vegetables with average price less than Rs. 10 and save it to a text file.
+    1. Find all vegetables traded on 6/17/2013 with minimum price of at least 40 and save it to a text file.
+
+
