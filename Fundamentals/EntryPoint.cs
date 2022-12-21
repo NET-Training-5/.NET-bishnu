@@ -101,7 +101,10 @@ class EntryPoint
         // FileIO fi = new();
         // fi.CreateDirectoriesAndFiles();
 
-        LINQ l = new();
-        l.LearnToQuery();
+        // LINQ l = new();
+        // l.LearnToQuery();
+
+        ParallelAndAsync parallelAndAsync = new();
+        parallelAndAsync.PrimalityTest();
     }
 }
