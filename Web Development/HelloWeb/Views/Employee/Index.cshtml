@@ -1,4 +1,7 @@
 @model List<Employee>
+@{
+    ViewData["Title"] = "All Employees";
+}
 
 <table class="table">
     <thead>
@@ -16,7 +19,7 @@
             <tr>
                 <td>@emp.FullName</td>
                 <td>@emp.Sex</td>
-                <td>@emp.JoinDate</td>
+                <td>@emp.JoinDate.ToString("MMMM dd, yyyy")</td>
                 <td>@emp.Designation</td>
                 <td>@emp.Department</td>
             </tr>
