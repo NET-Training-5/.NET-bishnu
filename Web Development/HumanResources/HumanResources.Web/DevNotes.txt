@@ -37,3 +37,12 @@ Data access
 2. ORM (Object Relational Mapper) tool: Dapper, Entity Framework Core*, NHibernate, RepoDb etc.
 	- Allows us to write db queries in high level languages like C#.
 
+EF Core
+==================
+1. Database first
+2. Code first
+
+
+
+
+
