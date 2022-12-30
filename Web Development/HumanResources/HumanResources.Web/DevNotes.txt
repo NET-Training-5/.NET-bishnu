@@ -23,3 +23,17 @@ Security
 ==========================
 - Authnetication
 - Role based authorization
+
+
+Database Programming
+==============================
+
+Relational Databases (Uses SQL): MySql, Sqlite*, Sql Server*, Oracle, Postgres etc.
+No Sql databases (Big Data architectures): MongoDb, AWS DynamoDb ec.
+
+Data access
+==================
+1. ADO.NET (Active Data Object)
+2. ORM (Object Relational Mapper) tool: Dapper, Entity Framework Core*, NHibernate, RepoDb etc.
+	- Allows us to write db queries in high level languages like C#.
+

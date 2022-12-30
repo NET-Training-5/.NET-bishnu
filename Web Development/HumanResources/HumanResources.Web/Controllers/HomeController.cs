@@ -1,5 +1,6 @@
 ﻿using HumanResources.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Data.SqlClient;
 using System.Diagnostics;
 
 namespace HumanResources.Web.Controllers
@@ -15,7 +16,41 @@ namespace HumanResources.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<Employee> employees = new List<Employee>();
+
+            // Fetch data from db
+            string connectionString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=HumanResources_Test;Integrated Security=true";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("Select * from Employee", connection);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        var emp = new Employee
+                        {
+                            Id = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Address = reader.GetString(2),
+                            Gender = char.Parse(reader.GetString(3)),
+                            Dob = reader.GetDateTime(4),
+                        };
+
+                        employees.Add(emp);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return View(employees);
         }
 
         public IActionResult Privacy()

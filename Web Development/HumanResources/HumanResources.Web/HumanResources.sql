@@ -23,3 +23,8 @@ values ('Ashesh Shrestha', 'Kathmandu', 'M', '1988/12/12')
 
 select * from Employee
 
+--update Employee set Name = 'Sita Neupane', Gender = 'F'
+--where Id=2
+
+delete from Employee where Id=1002
+
