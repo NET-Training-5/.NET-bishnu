@@ -42,4 +42,19 @@ public class EmployeeController : Controller
 
         return RedirectToAction(nameof(Index));
     }
+
+    public IActionResult Delete(int id)
+    {
+        var employee = db.Employees.Find(id);
+        return View(employee);
+    }
+
+    [HttpPost]
+    public IActionResult Delete(Employee employee)
+    {
+        db.Employees.Remove(employee);
+        db.SaveChanges();
+
+        return RedirectToAction(nameof(Index));
+    }
 }
