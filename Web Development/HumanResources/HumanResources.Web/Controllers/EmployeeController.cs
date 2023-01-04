@@ -1,11 +1,17 @@
 ﻿using HumanResources.Web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HumanResources.Web.Controllers;
 
 public class EmployeeController : Controller
 {
-    HRDbContext db = new HRDbContext();
+    private readonly HRDbContext db;
+
+    public EmployeeController(HRDbContext _db)
+    {
+        db = _db;
+    }
 
     public IActionResult Index()
     {
@@ -16,6 +22,20 @@ public class EmployeeController : Controller
 
     public IActionResult Add()
     {
+        var departments = db.Departments.Select(department => new SelectListItem
+        {
+            Text = department.Name,
+            Value = department.Name
+        });
+        ViewData["departments"] = departments;
+
+        var designations = db.Designations.Select(designation => new SelectListItem
+        {
+            Text = designation.Name,
+            Value = designation.Name
+        });
+        ViewData["designations"] = designations;
+
         return View();
     }
 
@@ -28,10 +48,10 @@ public class EmployeeController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    public IActionResult Edit(int id) 
-    { 
+    public IActionResult Edit(int id)
+    {
         var employee = db.Employees.Find(id);
-        return View(employee); 
+        return View(employee);
     }
 
     [HttpPost]
