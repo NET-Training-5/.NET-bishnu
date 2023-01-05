@@ -1,6 +1,7 @@
 ﻿using HumanResources.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace HumanResources.Web.Controllers;
 
@@ -15,7 +16,7 @@ public class EmployeeController : Controller
 
     public IActionResult Index()
     {
-        var employees = db.Employees.ToList();
+        var employees = db.Employees.Include(e => e.Department).ToList();
 
         return View(employees);
     }
@@ -25,7 +26,7 @@ public class EmployeeController : Controller
         var departments = db.Departments.Select(department => new SelectListItem
         {
             Text = department.Name,
-            Value = department.Name
+            Value = department.Id.ToString()
         });
         ViewData["departments"] = departments;
 

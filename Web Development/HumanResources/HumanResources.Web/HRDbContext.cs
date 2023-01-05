@@ -12,9 +12,9 @@ public class HRDbContext: DbContext
     {        
     }
 
-    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    //{
-    //    optionsBuilder
-    //        .UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=HumanResources;Integrated Security=true");
-    //}
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder
+            .UseSqlServer("Data Source=(localdb)\\mssqllocaldb;Initial Catalog=HumanResources;Integrated Security=true");
+    }
 }

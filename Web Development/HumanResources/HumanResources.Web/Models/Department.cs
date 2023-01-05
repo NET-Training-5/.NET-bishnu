@@ -5,4 +5,6 @@ public class Department
     public string Name { get; set; }
     public string? Description { get; set; }
     public DateTime Estalbished { get; set; }
+
+    public List<Employee> Employees { get; set; }
 }
