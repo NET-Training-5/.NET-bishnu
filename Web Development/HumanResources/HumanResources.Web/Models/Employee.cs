@@ -1,5 +1,6 @@
 ﻿using HumanResources.Web.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HumanResources.Web.Models;
 public class Employee
@@ -16,6 +17,10 @@ public class Employee
     public DateTime JoinDate { get; set; }
     public string Designation { get; set; }
 
+    [NotMapped]
+    public IFormFile ProfileImage { get; set; }
+    public string ProfileImagePath { get; set; }
+
     public Department Department { get; set; }
-    public int DepartmentId { get; set; }
+    public int DepartmentId { get; set; } 
 }
