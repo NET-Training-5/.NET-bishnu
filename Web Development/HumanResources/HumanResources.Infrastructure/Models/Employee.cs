@@ -1,4 +1,4 @@
-﻿using HumanResources.Web.Enums;
+﻿using HumanResources.ApplicationCore.Enums;
 
 namespace HumanResources.Web.Models;
 public class Employee
