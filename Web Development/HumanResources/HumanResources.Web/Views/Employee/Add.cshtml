@@ -1,5 +1,5 @@
 ﻿@using HumanResources.Web.Enums;
-@model Employee
+@model EmployeeViewModel
 @{
     ViewData["Title"] = "Add Employee";
     var departments = ViewData["departments"] as IEnumerable<SelectListItem>;
@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-md-6 mb-3">
-            <label asp-for=Department class="form-label"></label>
+            <label asp-for=DepartmentName class="form-label"></label>
             <select asp-for=DepartmentId asp-items=departments class="form-control"></select>
         </div>
         <div class="col-md-6 mb-3">

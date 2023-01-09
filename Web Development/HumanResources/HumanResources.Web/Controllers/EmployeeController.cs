@@ -1,4 +1,6 @@
-﻿using HumanResources.Web.Models;
+﻿using HumanResources.Web.Mapper;
+using HumanResources.Web.Models;
+using HumanResources.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,39 +16,47 @@ public class EmployeeController : Controller
         db = _db;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var employees = db.Employees.Include(e => e.Department).ToList();
+        var employees = await db.Employees.Include(e => e.Department).ToListAsync();
 
-        return View(employees);
+        var employeeViewModels = employees.ToViewModel();
+
+        return View(employeeViewModels);
     }
 
-    public IActionResult Add()
+    public async Task<IActionResult> Add()
     {
-        var departments = db.Departments.Select(department => new SelectListItem
+        var departments = await db.Departments.Select(department => new SelectListItem
         {
             Text = department.Name,
             Value = department.Id.ToString()
-        });
+        }).ToListAsync();
+
         ViewData["departments"] = departments;
 
-        var designations = db.Designations.Select(designation => new SelectListItem
+        var designations = await db.Designations.Select(designation => new SelectListItem
         {
             Text = designation.Name,
             Value = designation.Name
-        });
+        }).ToListAsync();
+
         ViewData["designations"] = designations;
 
         return View();
     }
 
     [HttpPost]
-    public IActionResult Add(Employee employee)
+    public async Task<IActionResult> Add(EmployeeViewModel employeeViewModel)
     {
-        var relativePath = SaveProfileImage(employee.ProfileImage);
+        var relativePath = await SaveProfileImage(employeeViewModel.ProfileImage);
+
+        // Map viewmodel to model
+        var employee = employeeViewModel.ToModel();
+        
         employee.ProfileImagePath = relativePath;
-        db.Employees.Add(employee);
-        db.SaveChanges();
+        await db.Employees.AddAsync(employee);
+        await db.SaveChangesAsync();
 
         return RedirectToAction(nameof(Index));
     }
@@ -81,7 +91,7 @@ public class EmployeeController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    private string  SaveProfileImage(IFormFile profileImage)
+    private async Task<string> SaveProfileImage(IFormFile profileImage)
     {        
         var fileName = profileImage.FileName;   //38b7feaa-39d3-4ead-aeeb-ee7dff72cd4a_person.jpg
         var uniqueFileName = $"{Guid.NewGuid()}_{fileName}";
@@ -90,7 +100,7 @@ public class EmployeeController : Controller
         var fullFilePath = Path.Combine(currentAppPath, $"wwwroot/{relativePath}");
 
         var stream = System.IO.File.Create(fullFilePath);
-        profileImage.CopyTo(stream);
+        await profileImage.CopyToAsync(stream);
 
         return relativePath;
     }
