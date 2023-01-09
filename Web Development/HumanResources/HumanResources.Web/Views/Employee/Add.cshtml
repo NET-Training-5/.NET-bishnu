@@ -8,12 +8,16 @@
 
 <div class="card p-5 shadow">
     <form action="/employee/add" method="post" class="row" enctype="multipart/form-data">
+        <div asp-validation-summary=ModelOnly></div>
+
         <div class="col-md-6 mb-3">
             <label asp-for=Name class="form-label"></label>
+            <span asp-validation-for="Name" class="text-danger"></span>
             <input asp-for=Name class="form-control">
         </div>
         <div class="col-md-6 mb-3">
             <label asp-for=Email class="form-label"></label>
+            <span asp-validation-for="Email" class="text-danger"></span>
             <input asp-for=Email class="form-control">
         </div>
 
