@@ -37,10 +37,11 @@
                 <td>@employee.DepartmentName</td>
                 <td>@employee.Designation</td>
                 <td>
-                    <a href="/employee/edit/@employee.Id">
+                    <a asp-action="Edit" asp-route-id="@employee.Id">
                         <i class="bi bi-pencil text-warning"></i>
                     </a>
-                    <a href="/employee/delete/@employee.Id">
+                    
+                    <a asp-action="Delete" asp-route-id="@employee.Id">
                         <i class="bi bi-trash text-danger"></i>
                     </a>
                 </td>
