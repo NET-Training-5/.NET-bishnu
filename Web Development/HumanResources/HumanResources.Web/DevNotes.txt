@@ -22,8 +22,9 @@ Reporting
 Security
 ==========================
 - Authnetication
-- Role based authorization
-
+	- Able to login to the system/app
+- Authorization
+	- Roles, Claims
 
 Database Programming
 ==============================

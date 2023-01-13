@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HumanResources.Web.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace HumanResources.Web.Controllers
 {
+    [Authorize("Admin")]
     public class DepartmentsController : Controller
     {
         private readonly HRDbContext _context;
