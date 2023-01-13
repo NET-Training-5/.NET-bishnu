@@ -40,5 +40,16 @@ namespace HumanResources.Api.Controllers
             //var employees = await dbContext.Employees.Include(e => e.Department).ToListAsync();
             return await employees.ToListAsync();
         }
+
+        [HttpGet("{id}")]   //  api/employees/1023
+        public async Task<ActionResult<Employee>> GetEmployee(int id)
+        {
+            var employee = await dbContext.Employees.FindAsync(id);
+            
+            if (employee is null)
+                return NotFound();
+            
+            return Ok(employee);
+        }
     }
 }
