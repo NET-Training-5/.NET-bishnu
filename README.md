@@ -72,3 +72,6 @@ You make changes (Add, modify, delete)
 1. Create a web page containing a form to input employee details. Apply bootstrap style to all form elements.
 
 1. Create new Employee controller and render a page containing employees details in a table. Use bootstrap selectors to beautify your table.
+1. Create authorization UI for
+    1. Roles (CRUD) (Hint: RoleManager<IdentityRole>)
+    1. Role Assignment
