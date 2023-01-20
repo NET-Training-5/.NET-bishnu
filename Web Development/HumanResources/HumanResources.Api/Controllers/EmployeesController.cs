@@ -18,8 +18,8 @@ namespace HumanResources.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<List<EmployeeApiModel>> GetEmployees()
-        {
+        public async Task<EmployeeData> GetEmployees()
+        {           
             var employees = from e in dbContext.Employees
                             join d in dbContext.Departments
                             on e.DepartmentId equals d.Id
@@ -38,7 +38,8 @@ namespace HumanResources.Api.Controllers
                             };
 
             //var employees = await dbContext.Employees.Include(e => e.Department).ToListAsync();
-            return await employees.ToListAsync();
+            var result = await employees.ToListAsync();
+            return new EmployeeData { Data = result };
         }
 
         [HttpGet("{id}")]   //  api/employees/1023
@@ -50,6 +51,58 @@ namespace HumanResources.Api.Controllers
                 return NotFound();
             
             return Ok(employee);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<int>> Post(Employee employee)
+        {
+            if (employee is null)
+                return BadRequest();
+
+            await dbContext.Employees.AddAsync(employee);
+            await dbContext.SaveChangesAsync();
+
+            return Created($"api/employees/{employee.Id}", employee.Id);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<int>> Put(Employee employee)
+        {
+            if (employee is null)
+                return BadRequest();
+
+            dbContext.Employees.Update(employee);
+            await dbContext.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpPatch]
+        public async Task<ActionResult<int>> Patch(Employee employee)
+        {
+            if (employee is null)
+                return BadRequest();
+
+            dbContext.Employees.Update(employee);
+            await dbContext.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            if(id is 0)
+                return BadRequest();
+
+            var employee = await dbContext.Employees.FindAsync(id);
+            if (employee is null)
+                return NotFound();
+
+            dbContext.Employees.Remove(employee);
+            await dbContext.SaveChangesAsync();
+
+            return NoContent();
         }
     }
 }
