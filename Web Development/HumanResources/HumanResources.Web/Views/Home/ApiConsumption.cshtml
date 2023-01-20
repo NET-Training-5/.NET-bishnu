@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "API Consumption";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+    </tr>
+    <tbody id="empBody">
+    </tbody>
+</table>
+
+<h2>Data Tables</h2>
+<table id="example" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Join Date</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Join Date</th>
+        </tr>
+    </tfoot>
+</table>
+
+@section Scripts{
+    <script>
+        $.get("http://localhost:5112/api/employees", function (data, status) {
+            createRows(data);
+        });
+
+        function createRows(rowData) {
+            let rowsHtml = '';
+            for (let row of rowData) {
+                rowsHtml += '<tr><td>' + row.name + '</td>' +
+                    '<td>' + row.email + '</td>' +
+                    '<td>' + row.address + '</td></tr>'
+            }
+
+            $('#empBody').html(rowsHtml);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let table = new DataTable('#example', {
+                ajax: 'http://localhost:5112/api/employees',
+                columns: [
+                    { data: 'name' },
+                    { data: 'email' },
+                    { data: 'address' },
+                    { data: 'gender' },
+                    { data: 'dob' },
+                    { data: 'joinDate' }
+                ]
+            });
+        });
+    </script>
+}

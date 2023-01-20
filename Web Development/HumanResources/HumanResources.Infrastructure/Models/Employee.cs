@@ -13,6 +13,6 @@ public class Employee
     public string Designation { get; set; }
     public string ProfileImagePath { get; set; }
 
-    public Department Department { get; set; }
+    public Department? Department { get; set; }
     public int DepartmentId { get; set; } 
 }

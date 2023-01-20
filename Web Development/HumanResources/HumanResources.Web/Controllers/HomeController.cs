@@ -54,7 +54,7 @@ namespace HumanResources.Web.Controllers
             return View(employees);
         }
 
-        public IActionResult Privacy()
+        public IActionResult ApiConsumption()
         {
             return View();
         }

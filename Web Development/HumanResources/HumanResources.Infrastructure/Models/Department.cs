@@ -6,5 +6,5 @@ public class Department
     public string? Description { get; set; }
     public DateTime Estalbished { get; set; }
 
-    public List<Employee> Employees { get; set; }
+    public List<Employee>? Employees { get; set; }
 }
