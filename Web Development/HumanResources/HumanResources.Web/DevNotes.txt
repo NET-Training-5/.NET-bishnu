@@ -44,6 +44,13 @@ EF Core
 2. Code first
 
 
+Deploy, Host, Publish
+=================================
+- Physical Machine (Server)
+- Web server tool: IIS(Internet Information Services), nginx, Apache
+- Domain Name (DNS) and IP Address(e.g. 10.34.234.123)
+- SSL Certificate
 
-
+- DevOps Team
+- CI/CD - Continuous Integration, Continuous Deployment
 

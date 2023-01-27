@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using HumanResources.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("HRDbContextConnection") ?? throw new InvalidOperationException("Connection string 'HRDbContextConnection' not found.");
@@ -7,6 +8,7 @@ var connectionString = builder.Configuration.GetConnectionString("HRDbContextCon
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<HRDbContext>();
+builder.Services.AddScoped<IEmployeeRespository, EmployeeRespository>();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => 
     options.SignIn.RequireConfirmedAccount = true)

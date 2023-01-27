@@ -1,4 +1,5 @@
-﻿using HumanResources.Web.Mapper;
+﻿using HumanResources.Infrastructure.Repositories;
+using HumanResources.Web.Mapper;
 using HumanResources.Web.Models;
 using HumanResources.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -10,20 +11,17 @@ namespace HumanResources.Web.Controllers;
 public class EmployeeController : Controller
 {
     private readonly HRDbContext db;
+    private readonly IEmployeeRespository employeeRespository;
 
-    public EmployeeController(HRDbContext _db)
+    public EmployeeController(HRDbContext _db, IEmployeeRespository employeeRespository)
     {
         db = _db;
+        this.employeeRespository = employeeRespository;
     }
 
     public async Task<IActionResult> Index(string searchText = "")
     {
-        var employees = await db.Employees.Include(e => e.Department).ToListAsync();
-
-        // Filter
-        if (!string.IsNullOrEmpty(searchText))
-            employees = employees.Where(emp => emp.Name.Contains(searchText,StringComparison.InvariantCultureIgnoreCase)).ToList();
-
+        var employees = await employeeRespository.GetEmployees(searchText);
         var employeeViewModels = employees.ToViewModel();
 
         return View(employeeViewModels);

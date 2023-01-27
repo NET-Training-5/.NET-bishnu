@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace HumanResources.Web.Controllers
 {
-    [Authorize("Admin")]
+    [Authorize]
     public class DepartmentsController : Controller
     {
         private readonly HRDbContext _context;

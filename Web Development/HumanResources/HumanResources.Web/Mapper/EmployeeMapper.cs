@@ -19,7 +19,6 @@ public static class EmployeeMapper
             DepartmentId = employee.DepartmentId,
             DepartmentName = employee.Department.Name
         };
-
     public static List<EmployeeViewModel> ToViewModel(this List<Employee> employees) =>
         employees.Select(employee => employee.ToViewModel()).ToList();
 
@@ -38,7 +37,6 @@ public static class EmployeeMapper
             ProfileImagePath = employeeViewModel.ProfileImagePath,
             DepartmentId = employeeViewModel.DepartmentId
         };
-
     public static List<Employee> ToModel(this List<EmployeeViewModel> employeeViewModels) =>
         employeeViewModels.Select(employeeViewModel => employeeViewModel.ToModel()).ToList();
 }
